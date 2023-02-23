@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mentalhelthapp/pages/utill/consultant_title.dart';
-
 import 'chat.dart';
 import 'home_page.dart';
 
@@ -12,7 +10,6 @@ class Consultant extends StatefulWidget {
 }
 
 class _ConsultantState extends State<Consultant> {
-
   int _currentIndex = 0;
   final List<Widget> _children = [HomePage(), Consultant(), Chat()];
 
@@ -276,26 +273,341 @@ class _ConsultantState extends State<Consultant> {
                       Expanded(
                         child: ListView(
                           children: [
-                            ConsultantTitle(
-                              icon: Icons.person,
-                              consultantName: "Bobby Singer",
-                              consultantType: "Education",
-                              Color: Colors.green,
-                              imagenumber: 1,
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 12.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) {
+                                      return Chat();
+                                    },
+                                  ));
+                                },
+                                child: Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.all(16),
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[100],
+                                        borderRadius:
+                                            BorderRadius.circular(16)),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                              child: Container(
+                                                // padding: EdgeInsets.all(16),
+                                                // color: Color,
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(10)),
+                                                  child: CircleAvatar(
+                                                    backgroundImage: AssetImage(
+                                                        'assets/image/1.jpg'),
+                                                    radius: 30,
+                                                  ),
+                                                ),
+                                                // child: Icon(
+                                                //   icon,
+                                                //   color: Colors.white,
+                                                // ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 12,
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                //title
+                                                Text(
+                                                  "Bobby Singer",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 16),
+                                                ),
+
+                                                SizedBox(
+                                                  height: 5,
+                                                ),
+                                                //subtitile
+                                                Text(
+                                                  "Education",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 14,
+                                                      color: Colors.grey),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                        Icon(Icons.more_horiz),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
-                            ConsultantTitle(
-                              icon: Icons.person,
-                              consultantName: "Dean Winchester",
-                              consultantType: "career",
-                              Color: Colors.purple,
-                              imagenumber: 8,
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 12.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) {
+                                      return Chat();
+                                    },
+                                  ));
+                                },
+                                child: Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.all(16),
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[100],
+                                        borderRadius:
+                                            BorderRadius.circular(16)),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                              child: Container(
+                                                // padding: EdgeInsets.all(16),
+                                                // color: Color,
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(10)),
+                                                  child: CircleAvatar(
+                                                    backgroundImage: AssetImage(
+                                                        'assets/image/8.jpg'),
+                                                    radius: 30,
+                                                  ),
+                                                ),
+                                                // child: Icon(
+                                                //   icon,
+                                                //   color: Colors.white,
+                                                // ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 12,
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                //title
+                                                Text(
+                                                  "Dean Winchester",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 16),
+                                                ),
+
+                                                SizedBox(
+                                                  height: 5,
+                                                ),
+                                                //subtitile
+                                                Text(
+                                                  "career",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 14,
+                                                      color: Colors.grey),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                        Icon(Icons.more_horiz),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
-                            ConsultantTitle(
-                              icon: Icons.person,
-                              consultantName: "SK Rosii",
-                              consultantType: "Future",
-                              Color: Colors.blue,
-                              imagenumber: 2,
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 12.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) {
+                                      return Chat();
+                                    },
+                                  ));
+                                },
+                                child: Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.all(16),
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[100],
+                                        borderRadius:
+                                            BorderRadius.circular(16)),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                              child: Container(
+                                                // padding: EdgeInsets.all(16),
+                                                // color: Color,
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(10)),
+                                                  child: CircleAvatar(
+                                                    backgroundImage: AssetImage(
+                                                        'assets/image/7.jpg'),
+                                                    radius: 30,
+                                                  ),
+                                                ),
+                                                // child: Icon(
+                                                //   icon,
+                                                //   color: Colors.white,
+                                                // ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 12,
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                //title
+                                                Text(
+                                                  "SK Rosii",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 16),
+                                                ),
+
+                                                SizedBox(
+                                                  height: 5,
+                                                ),
+                                                //subtitile
+                                                Text(
+                                                  "Future",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 14,
+                                                      color: Colors.grey),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                        Icon(Icons.more_horiz),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 12.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) {
+                                      return Chat();
+                                    },
+                                  ));
+                                },
+                                child: Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.all(16),
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[100],
+                                        borderRadius:
+                                            BorderRadius.circular(16)),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                              child: Container(
+                                                // padding: EdgeInsets.all(16),
+                                                // color: Color,
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(10)),
+                                                  child: CircleAvatar(
+                                                    backgroundImage: AssetImage(
+                                                        'assets/image/4.jpg'),
+                                                    radius: 30,
+                                                  ),
+                                                ),
+                                                // child: Icon(
+                                                //   icon,
+                                                //   color: Colors.white,
+                                                // ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 12,
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                //title
+                                                Text(
+                                                  "",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 16),
+                                                ),
+
+                                                SizedBox(
+                                                  height: 5,
+                                                ),
+                                                //subtitile
+                                                Text(
+                                                  "Education",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 14,
+                                                      color: Colors.grey),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                        Icon(Icons.more_horiz),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
                           ],
                         ),

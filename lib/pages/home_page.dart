@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mentalhelthapp/pages/chat.dart';
 import 'package:mentalhelthapp/pages/consultant.dart';
-import 'package:mentalhelthapp/pages/utill/emoticon_face.dart';
-import 'package:mentalhelthapp/pages/utill/excercises_title.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -153,8 +151,17 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Column(
                         children: [
-                          EmoticonFace(
-                            emoticonFace: "😔",
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.blue[600],
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            padding: EdgeInsets.all(16),
+                            child: Center(
+                                child: Text(
+                              "😔",
+                              style: TextStyle(fontSize: 28),
+                            )),
                           ),
                           SizedBox(
                             height: 8,
@@ -167,8 +174,17 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Column(
                         children: [
-                          EmoticonFace(
-                            emoticonFace: "😊",
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.blue[600],
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            padding: EdgeInsets.all(16),
+                            child: Center(
+                                child: Text(
+                              "😊",
+                              style: TextStyle(fontSize: 28),
+                            )),
                           ),
                           SizedBox(
                             height: 8,
@@ -182,8 +198,17 @@ class _HomePageState extends State<HomePage> {
                       //well
                       Column(
                         children: [
-                          EmoticonFace(
-                            emoticonFace: "😁",
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.blue[600],
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            padding: EdgeInsets.all(16),
+                            child: Center(
+                                child: Text(
+                              "😁",
+                              style: TextStyle(fontSize: 28),
+                            )),
                           ),
                           SizedBox(
                             height: 8,
@@ -197,8 +222,17 @@ class _HomePageState extends State<HomePage> {
                       // excellent
                       Column(
                         children: [
-                          EmoticonFace(
-                            emoticonFace: "😃",
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.blue[600],
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            padding: EdgeInsets.all(16),
+                            child: Center(
+                                child: Text(
+                              "😃",
+                              style: TextStyle(fontSize: 28),
+                            )),
                           ),
                           SizedBox(
                             height: 8,
@@ -251,23 +285,182 @@ class _HomePageState extends State<HomePage> {
                       Expanded(
                         child: ListView(
                           children: [
-                            ExcercisesTitle(
-                              icon: Icons.favorite,
-                              excerciseName: "Speaking skills",
-                              numberofExcercisees: 16,
-                              Color: Colors.orange,
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 12.0),
+                              child: Container(
+                                padding: EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                    color: Colors.grey[100],
+                                    borderRadius: BorderRadius.circular(16)),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          child: Container(
+                                              padding: EdgeInsets.all(16),
+                                              color: Colors.orange,
+                                              child: Icon(
+                                                Icons.favorite,
+                                                color: Colors.white,
+                                              )),
+                                        ),
+                                        SizedBox(
+                                          width: 12,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            //title
+                                            Text(
+                                              "Speaking skills",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16),
+                                            ),
+
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            //subtitile
+                                            Text(
+                                              16.toString() + " excersicese",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 14,
+                                                  color: Colors.grey),
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                    Icon(Icons.more_horiz),
+                                  ],
+                                ),
+                              ),
                             ),
-                            ExcercisesTitle(
-                              icon: Icons.person,
-                              excerciseName: "Reading speed",
-                              numberofExcercisees: 8,
-                              Color: Colors.blue,
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 12.0),
+                              child: Container(
+                                padding: EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                    color: Colors.grey[100],
+                                    borderRadius: BorderRadius.circular(16)),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          child: Container(
+                                              padding: EdgeInsets.all(16),
+                                              color: Colors.blue,
+                                              child: Icon(
+                                                Icons.person,
+                                                color: Colors.white,
+                                              )),
+                                        ),
+                                        SizedBox(
+                                          width: 12,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            //title
+                                            Text(
+                                              "Reading Skills",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16),
+                                            ),
+
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            //subtitile
+                                            Text(
+                                              8.toString() + " excersicese",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 14,
+                                                  color: Colors.grey),
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                    Icon(Icons.more_horiz),
+                                  ],
+                                ),
+                              ),
                             ),
-                            ExcercisesTitle(
-                              icon: Icons.star,
-                              excerciseName: "Writting skills",
-                              numberofExcercisees: 20,
-                              Color: Colors.pinkAccent,
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 12.0),
+                              child: Container(
+                                padding: EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                    color: Colors.grey[100],
+                                    borderRadius: BorderRadius.circular(16)),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          child: Container(
+                                              padding: EdgeInsets.all(16),
+                                              color: Colors.pinkAccent,
+                                              child: Icon(
+                                                Icons.person,
+                                                color: Colors.white,
+                                              )),
+                                        ),
+                                        SizedBox(
+                                          width: 12,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            //title
+                                            Text(
+                                              "Writting skills",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16),
+                                            ),
+
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            //subtitile
+                                            Text(
+                                              20.toString() + " excersicese",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 14,
+                                                  color: Colors.grey),
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                    Icon(Icons.more_horiz),
+                                  ],
+                                ),
+                              ),
                             ),
                           ],
                         ),
