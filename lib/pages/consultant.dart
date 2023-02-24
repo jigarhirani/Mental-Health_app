@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'chat.dart';
-import 'home_page.dart';
+import 'package:mentalhelthapp/pages/chat.dart';
+import 'package:mentalhelthapp/pages/consultant.dart';
+import 'package:http/http.dart' as http;
+import 'package:mentalhelthapp/pages/home_page.dart';
 
 class Consultant extends StatefulWidget {
   const Consultant({Key? key}) : super(key: key);
@@ -12,11 +16,10 @@ class Consultant extends StatefulWidget {
 class _ConsultantState extends State<Consultant> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blue[800],
-      body: SafeArea(
-        child: Column(
-          children: [
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: Colors.blue[800],
+          body: Column(children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Column(
@@ -103,17 +106,15 @@ class _ConsultantState extends State<Consultant> {
             ),
             Expanded(
               child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
-                  color: Colors.white,
-                ),
-                padding: EdgeInsets.all(25),
-                height: 500,
-                child: Center(
+                  padding: EdgeInsets.all(25),
+                  height: 500,
+                  decoration: BoxDecoration(
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(25)),
+                    color: Colors.white,
+                  ),
                   child: Column(
                     children: [
-                      // Consultant
-
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -127,11 +128,9 @@ class _ConsultantState extends State<Consultant> {
                           Icon(Icons.more_horiz)
                         ],
                       ),
-
                       SizedBox(
                         height: 20,
                       ),
-
                       Expanded(
                         child: Column(
                           children: [
@@ -222,11 +221,9 @@ class _ConsultantState extends State<Consultant> {
                           ],
                         ),
                       ),
-
                       SizedBox(
                         height: 20,
                       ),
-
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -237,367 +234,123 @@ class _ConsultantState extends State<Consultant> {
                               fontSize: 20,
                             ),
                           ),
-                          Icon(Icons.more_horiz),
-                          // Image(image: AssetImage("'assets/image/2.jpg',"))
+                          Icon(Icons.more_horiz)
                         ],
                       ),
-
                       SizedBox(
                         height: 20,
                       ),
-                      // list view of excercises
-
                       Expanded(
-                        child: ListView(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 12.0),
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) {
-                                      return Chat();
-                                    },
-                                  ));
-                                },
-                                child: Expanded(
-                                  child: Container(
-                                    padding: EdgeInsets.all(16),
-                                    decoration: BoxDecoration(
-                                        color: Colors.grey[100],
-                                        borderRadius:
-                                            BorderRadius.circular(16)),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(12),
-                                              child: Container(
-                                                // padding: EdgeInsets.all(16),
-                                                // color: Color,
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(10)),
-                                                  child: CircleAvatar(
-                                                    backgroundImage: AssetImage(
-                                                        'assets/image/1.jpg'),
-                                                    radius: 30,
-                                                  ),
-                                                ),
-                                                // child: Icon(
-                                                //   icon,
-                                                //   color: Colors.white,
-                                                // ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: 12,
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                //title
-                                                Text(
-                                                  "Bobby Singer",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 16),
-                                                ),
-
-                                                SizedBox(
-                                                  height: 5,
-                                                ),
-                                                //subtitile
-                                                Text(
-                                                  "Education",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 14,
-                                                      color: Colors.grey),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                        Icon(Icons.more_horiz),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 12.0),
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) {
-                                      return Chat();
-                                    },
-                                  ));
-                                },
-                                child: Expanded(
-                                  child: Container(
-                                    padding: EdgeInsets.all(16),
-                                    decoration: BoxDecoration(
-                                        color: Colors.grey[100],
-                                        borderRadius:
-                                            BorderRadius.circular(16)),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(12),
-                                              child: Container(
-                                                // padding: EdgeInsets.all(16),
-                                                // color: Color,
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(10)),
-                                                  child: CircleAvatar(
-                                                    backgroundImage: AssetImage(
-                                                        'assets/image/8.jpg'),
-                                                    radius: 30,
-                                                  ),
-                                                ),
-                                                // child: Icon(
-                                                //   icon,
-                                                //   color: Colors.white,
-                                                // ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: 12,
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                //title
-                                                Text(
-                                                  "Dean Winchester",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 16),
-                                                ),
-
-                                                SizedBox(
-                                                  height: 5,
-                                                ),
-                                                //subtitile
-                                                Text(
-                                                  "career",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 14,
-                                                      color: Colors.grey),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                        Icon(Icons.more_horiz),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 12.0),
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) {
-                                      return Chat();
-                                    },
-                                  ));
-                                },
-                                child: Expanded(
-                                  child: Container(
-                                    padding: EdgeInsets.all(16),
-                                    decoration: BoxDecoration(
-                                        color: Colors.grey[100],
-                                        borderRadius:
-                                            BorderRadius.circular(16)),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(12),
-                                              child: Container(
-                                                // padding: EdgeInsets.all(16),
-                                                // color: Color,
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(10)),
-                                                  child: CircleAvatar(
-                                                    backgroundImage: AssetImage(
-                                                        'assets/image/7.jpg'),
-                                                    radius: 30,
-                                                  ),
-                                                ),
-                                                // child: Icon(
-                                                //   icon,
-                                                //   color: Colors.white,
-                                                // ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: 12,
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                //title
-                                                Text(
-                                                  "SK Rosii",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 16),
-                                                ),
-
-                                                SizedBox(
-                                                  height: 5,
-                                                ),
-                                                //subtitile
-                                                Text(
-                                                  "Future",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 14,
-                                                      color: Colors.grey),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                        Icon(Icons.more_horiz),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 12.0),
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) {
-                                      return Chat();
-                                    },
-                                  ));
-                                },
-                                child: Expanded(
-                                  child: Container(
-                                    padding: EdgeInsets.all(16),
-                                    decoration: BoxDecoration(
-                                        color: Colors.grey[100],
-                                        borderRadius:
-                                            BorderRadius.circular(16)),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(12),
-                                              child: Container(
-                                                // padding: EdgeInsets.all(16),
-                                                // color: Color,
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(10)),
-                                                  child: CircleAvatar(
-                                                    backgroundImage: AssetImage(
-                                                        'assets/image/4.jpg'),
-                                                    radius: 30,
-                                                  ),
-                                                ),
-                                                // child: Icon(
-                                                //   icon,
-                                                //   color: Colors.white,
-                                                // ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: 12,
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                //title
-                                                Text(
-                                                  "",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 16),
-                                                ),
-
-                                                SizedBox(
-                                                  height: 5,
-                                                ),
-                                                //subtitile
-                                                Text(
-                                                  "Education",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 14,
-                                                      color: Colors.grey),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                        Icon(Icons.more_horiz),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
+                        child: FutureBuilder<http.Response>(
+                          future: getDataFromWebServer(),
+                          builder: (BuildContext context,
+                              AsyncSnapshot<http.Response> snapshot) {
+                            if (snapshot.hasData) {
+                              var sadData = jsonDecode(snapshot.data!.body);
+                              return ListView.builder(
+                                  itemCount: sadData.length,
+                                  shrinkWrap: true,
+                                  itemBuilder: (context, index) {
+                                    return pad(
+                                        asg:
+                                            sadData[index]['avatar'].toString(),
+                                        tits: sadData[index]["name"].toString(),
+                                        sasd: sadData[index]["category"]
+                                            .toString());
+                                  });
+                            }
+                            return Center(child: CircularProgressIndicator());
+                          },
                         ),
                       )
                     ],
-                  ),
+                  )),
+            ),
+          ])),
+    );
+  }
+
+  Widget pad({required asg, required tits, required sasd}) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12.0),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) {
+              return Chat();
+            },
+          ));
+        },
+        child: Expanded(
+          child: Container(
+            padding: EdgeInsets.all(16),
+            decoration: BoxDecoration(
+                color: Colors.grey[100],
+                borderRadius: BorderRadius.circular(16)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Container(
+                        // padding: EdgeInsets.all(16),
+                        // color: Color,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          child: CircleAvatar(
+                            backgroundImage: NetworkImage(asg),
+                            radius: 30,
+                          ),
+                        ),
+                        // child: Icon(
+                        //   icon,
+                        //   color: Colors.white,
+                        // ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //title
+                        Text(
+                          tits,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+
+                        SizedBox(
+                          height: 5,
+                        ),
+                        //subtitile
+                        Text(
+                          sasd,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                              color: Colors.grey),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
-              ),
-            )
-          ],
+                Icon(Icons.more_horiz),
+              ],
+            ),
+          ),
         ),
       ),
     );
-    ;
+  }
+
+  Future<http.Response> getDataFromWebServer() async {
+    var response = await http.get(
+        Uri.parse('https://63f74817e40e087c958b35ab.mockapi.io/consultant'));
+    print(response.body.toString());
+    return response;
   }
 }

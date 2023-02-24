@@ -297,7 +297,7 @@ class _HomePageState extends State<HomePage> {
                                             .toString(),
                                         sasd: sadData[index]["excercises_count"]
                                                 .toString() +
-                                            "Exersices");
+                                            " Exersices");
                                   });
                             }
                             return Center(child: CircularProgressIndicator());
@@ -312,10 +312,79 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget pad({required asg, required tits, required sasd}) {
-    return ListTile(
-      leading: Image.network(asg),
-      title: Text(tits),
-      subtitle: Text(sasd),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12.0),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) {
+              return Chat();
+            },
+          ));
+        },
+        child: Expanded(
+          child: Container(
+            padding: EdgeInsets.all(16),
+            decoration: BoxDecoration(
+                color: Colors.grey[100],
+                borderRadius: BorderRadius.circular(16)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Container(
+                        // padding: EdgeInsets.all(16),
+                        // color: Color,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          child: CircleAvatar(
+                            backgroundImage: NetworkImage(asg),
+                            radius: 30,
+                          ),
+                        ),
+                        // child: Icon(
+                        //   icon,
+                        //   color: Colors.white,
+                        // ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //title
+                        Text(
+                          tits,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+
+                        SizedBox(
+                          height: 5,
+                        ),
+                        //subtitile
+                        Text(
+                          sasd,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                              color: Colors.grey),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                Icon(Icons.more_horiz),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 
