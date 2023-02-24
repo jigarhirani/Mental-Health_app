@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:mentalhelthapp/pages/chat.dart';
 import 'package:mentalhelthapp/pages/consultant.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,36 +13,34 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentIndex = 0;
-  final List<Widget> _children = [HomePage(), Consultant(), Chat()];
-
-  void onTappedBar(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
-
+  int selectedIndex = 0;
+  List<Widget> widgetsList = [HomePage(), Consultant(), Chat(), HomePage()];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blue[800],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        onTap: onTappedBar,
-        currentIndex: _currentIndex,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grid_view_rounded),
-            label: "",
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: Colors.blue[800],
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            items: [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.grid_view_rounded),
+                label: "",
+              ),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.mail_rounded), label: ""),
+              BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
+            ],
+            onTap: (index) {
+              setState(() {
+                selectedIndex = index;
+              });
+            },
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.mail_rounded), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
-        ],
-      ),
-      body: SafeArea(
-        child: Column(
-          children: [
+          // body: widgetsList[selectedIndex],
+          // ),
+          body: Column(children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Column(
@@ -253,16 +254,15 @@ class _HomePageState extends State<HomePage> {
             ),
             Expanded(
               child: Container(
-                padding: EdgeInsets.all(25),
-                height: 500,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
-                  color: Colors.white,
-                ),
-                child: Center(
+                  padding: EdgeInsets.all(25),
+                  height: 500,
+                  decoration: BoxDecoration(
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(25)),
+                    color: Colors.white,
+                  ),
                   child: Column(
                     children: [
-                      // excercises
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -276,203 +276,53 @@ class _HomePageState extends State<HomePage> {
                           Icon(Icons.more_horiz)
                         ],
                       ),
-
                       SizedBox(
                         height: 20,
                       ),
-                      // list view of excercises
-
                       Expanded(
-                        child: ListView(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 12.0),
-                              child: Container(
-                                padding: EdgeInsets.all(16),
-                                decoration: BoxDecoration(
-                                    color: Colors.grey[100],
-                                    borderRadius: BorderRadius.circular(16)),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                          child: Container(
-                                              padding: EdgeInsets.all(16),
-                                              color: Colors.orange,
-                                              child: Icon(
-                                                Icons.favorite,
-                                                color: Colors.white,
-                                              )),
-                                        ),
-                                        SizedBox(
-                                          width: 12,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            //title
-                                            Text(
-                                              "Speaking skills",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 16),
-                                            ),
-
-                                            SizedBox(
-                                              height: 5,
-                                            ),
-                                            //subtitile
-                                            Text(
-                                              16.toString() + " excersicese",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 14,
-                                                  color: Colors.grey),
-                                            )
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                    Icon(Icons.more_horiz),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 12.0),
-                              child: Container(
-                                padding: EdgeInsets.all(16),
-                                decoration: BoxDecoration(
-                                    color: Colors.grey[100],
-                                    borderRadius: BorderRadius.circular(16)),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                          child: Container(
-                                              padding: EdgeInsets.all(16),
-                                              color: Colors.blue,
-                                              child: Icon(
-                                                Icons.person,
-                                                color: Colors.white,
-                                              )),
-                                        ),
-                                        SizedBox(
-                                          width: 12,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            //title
-                                            Text(
-                                              "Reading Skills",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 16),
-                                            ),
-
-                                            SizedBox(
-                                              height: 5,
-                                            ),
-                                            //subtitile
-                                            Text(
-                                              8.toString() + " excersicese",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 14,
-                                                  color: Colors.grey),
-                                            )
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                    Icon(Icons.more_horiz),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 12.0),
-                              child: Container(
-                                padding: EdgeInsets.all(16),
-                                decoration: BoxDecoration(
-                                    color: Colors.grey[100],
-                                    borderRadius: BorderRadius.circular(16)),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                          child: Container(
-                                              padding: EdgeInsets.all(16),
-                                              color: Colors.pinkAccent,
-                                              child: Icon(
-                                                Icons.person,
-                                                color: Colors.white,
-                                              )),
-                                        ),
-                                        SizedBox(
-                                          width: 12,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            //title
-                                            Text(
-                                              "Writting skills",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 16),
-                                            ),
-
-                                            SizedBox(
-                                              height: 5,
-                                            ),
-                                            //subtitile
-                                            Text(
-                                              20.toString() + " excersicese",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 14,
-                                                  color: Colors.grey),
-                                            )
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                    Icon(Icons.more_horiz),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
+                        child: FutureBuilder<http.Response>(
+                          future: getDataFromWebServer(),
+                          builder: (BuildContext context,
+                              AsyncSnapshot<http.Response> snapshot) {
+                            if (snapshot.hasData) {
+                              var sadData = jsonDecode(snapshot.data!.body);
+                              return ListView.builder(
+                                  itemCount: sadData.length,
+                                  shrinkWrap: true,
+                                  itemBuilder: (context, index) {
+                                    return pad(
+                                        asg:
+                                            sadData[index]['avatar'].toString(),
+                                        tits: sadData[index]["skill_name"]
+                                            .toString(),
+                                        sasd: sadData[index]["excercises_count"]
+                                                .toString() +
+                                            "Exersices");
+                                  });
+                            }
+                            return Center(child: CircularProgressIndicator());
+                          },
                         ),
                       )
                     ],
-                  ),
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
+                  )),
+            ),
+          ])),
     );
+  }
+
+  Widget pad({required asg, required tits, required sasd}) {
+    return ListTile(
+      leading: Image.network(asg),
+      title: Text(tits),
+      subtitle: Text(sasd),
+    );
+  }
+
+  Future<http.Response> getDataFromWebServer() async {
+    var response = await http.get(
+        Uri.parse('https://63f74817e40e087c958b35ab.mockapi.io/excercises'));
+    print(response.body.toString());
+    return response;
   }
 }

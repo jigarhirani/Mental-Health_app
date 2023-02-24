@@ -10,33 +10,10 @@ class Consultant extends StatefulWidget {
 }
 
 class _ConsultantState extends State<Consultant> {
-  int _currentIndex = 0;
-  final List<Widget> _children = [HomePage(), Consultant(), Chat()];
-
-  void onTappedBar(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue[800],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        onTap: onTappedBar,
-        currentIndex: _currentIndex,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grid_view_rounded),
-            label: "",
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.mail_rounded), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
-        ],
-      ),
       body: SafeArea(
         child: Column(
           children: [
