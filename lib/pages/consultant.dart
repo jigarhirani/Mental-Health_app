@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:mentalhelthapp/pages/chat.dart';
-import 'package:mentalhelthapp/pages/consultant.dart';
 import 'package:http/http.dart' as http;
 import 'package:mentalhelthapp/pages/home_page.dart';
 
@@ -81,21 +80,17 @@ class _ConsultantState extends State<Consultant> {
                     decoration: BoxDecoration(
                         color: Colors.blue[600],
                         borderRadius: BorderRadius.circular(12)),
-                    padding: EdgeInsets.all(12),
-                    child: Row(
-                      children: [
-                        Icon(
+                    padding: EdgeInsets.all(4),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Search",
+                        hintStyle: TextStyle(color: Colors.white),
+                        prefixIcon: Icon(
                           Icons.search,
                           color: Colors.white,
                         ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "Search",
-                          style: TextStyle(color: Colors.white),
-                        )
-                      ],
+                      ),
                     ),
                   ),
                 ],
@@ -139,7 +134,7 @@ class _ConsultantState extends State<Consultant> {
                                 children: [
                                   Expanded(
                                     child: Container(
-                                      margin: EdgeInsets.all(6),
+                                      margin: EdgeInsets.all(7),
                                       decoration: BoxDecoration(
                                         color: Colors.purple,
                                         borderRadius: BorderRadius.circular(12),
@@ -157,7 +152,7 @@ class _ConsultantState extends State<Consultant> {
                                   ),
                                   Expanded(
                                     child: Container(
-                                      margin: EdgeInsets.all(6),
+                                      margin: EdgeInsets.all(7),
                                       decoration: BoxDecoration(
                                         color: Colors.blue,
                                         borderRadius: BorderRadius.circular(12),
@@ -181,7 +176,7 @@ class _ConsultantState extends State<Consultant> {
                                 children: [
                                   Expanded(
                                     child: Container(
-                                      margin: EdgeInsets.all(6),
+                                      margin: EdgeInsets.all(7),
                                       decoration: BoxDecoration(
                                         color: Colors.orange,
                                         borderRadius: BorderRadius.circular(12),
@@ -199,7 +194,7 @@ class _ConsultantState extends State<Consultant> {
                                   ),
                                   Expanded(
                                     child: Container(
-                                      margin: EdgeInsets.all(6),
+                                      margin: EdgeInsets.all(7),
                                       decoration: BoxDecoration(
                                         color: Colors.pink,
                                         borderRadius: BorderRadius.circular(12),
@@ -281,66 +276,63 @@ class _ConsultantState extends State<Consultant> {
             },
           ));
         },
-        child: Expanded(
-          child: Container(
-            padding: EdgeInsets.all(16),
-            decoration: BoxDecoration(
-                color: Colors.grey[100],
-                borderRadius: BorderRadius.circular(16)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Container(
-                        // padding: EdgeInsets.all(16),
-                        // color: Color,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          child: CircleAvatar(
-                            backgroundImage: NetworkImage(asg),
-                            radius: 30,
-                          ),
+        child: Container(
+          padding: EdgeInsets.all(16),
+          decoration: BoxDecoration(
+              color: Colors.grey[100], borderRadius: BorderRadius.circular(16)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Container(
+                      // padding: EdgeInsets.all(16),
+                      // color: Color,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        child: CircleAvatar(
+                          backgroundImage: NetworkImage(asg),
+                          radius: 30,
                         ),
-                        // child: Icon(
-                        //   icon,
-                        //   color: Colors.white,
-                        // ),
                       ),
+                      // child: Icon(
+                      //   icon,
+                      //   color: Colors.white,
+                      // ),
                     ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        //title
-                        Text(
-                          tits,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16),
-                        ),
+                  ),
+                  SizedBox(
+                    width: 12,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      //title
+                      Text(
+                        tits,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
 
-                        SizedBox(
-                          height: 5,
-                        ),
-                        //subtitile
-                        Text(
-                          sasd,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                              color: Colors.grey),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                Icon(Icons.more_horiz),
-              ],
-            ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      //subtitile
+                      Text(
+                        sasd,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Colors.grey),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              Icon(Icons.more_horiz),
+            ],
           ),
         ),
       ),

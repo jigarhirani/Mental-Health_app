@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:mentalhelthapp/pages/chat.dart';
 import 'package:mentalhelthapp/pages/consultant.dart';
 import 'package:http/http.dart' as http;
 
@@ -13,33 +12,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int selectedIndex = 0;
-  List<Widget> widgetsList = [HomePage(), Consultant(), Chat(), HomePage()];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.blue[800],
-          bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            items: [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.grid_view_rounded),
-                label: "",
-              ),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.mail_rounded), label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
-            ],
-            onTap: (index) {
-              setState(() {
-                selectedIndex = index;
-              });
-            },
-          ),
-          // body: widgetsList[selectedIndex],
-          // ),
           body: Column(children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -102,21 +79,17 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(
                         color: Colors.blue[600],
                         borderRadius: BorderRadius.circular(12)),
-                    padding: EdgeInsets.all(12),
-                    child: Row(
-                      children: [
-                        Icon(
+                    padding: EdgeInsets.all(4),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Search",
+                        hintStyle: TextStyle(color: Colors.white),
+                        prefixIcon: Icon(
                           Icons.search,
                           color: Colors.white,
                         ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "Search",
-                          style: TextStyle(color: Colors.white),
-                        )
-                      ],
+                      ),
                     ),
                   ),
 
@@ -314,75 +287,63 @@ class _HomePageState extends State<HomePage> {
   Widget pad({required asg, required tits, required sasd}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0),
-      child: GestureDetector(
-        onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) {
-              return Chat();
-            },
-          ));
-        },
-        child: Expanded(
-          child: Container(
-            padding: EdgeInsets.all(16),
-            decoration: BoxDecoration(
-                color: Colors.grey[100],
-                borderRadius: BorderRadius.circular(16)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Container(
+        padding: EdgeInsets.all(16),
+        decoration: BoxDecoration(
+            color: Colors.grey[100], borderRadius: BorderRadius.circular(16)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
               children: [
-                Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Container(
-                        // padding: EdgeInsets.all(16),
-                        // color: Color,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          child: CircleAvatar(
-                            backgroundImage: NetworkImage(asg),
-                            radius: 30,
-                          ),
-                        ),
-                        // child: Icon(
-                        //   icon,
-                        //   color: Colors.white,
-                        // ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Container(
+                    // padding: EdgeInsets.all(16),
+                    // color: Color,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(asg),
+                        radius: 30,
                       ),
                     ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        //title
-                        Text(
-                          tits,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16),
-                        ),
-
-                        SizedBox(
-                          height: 5,
-                        ),
-                        //subtitile
-                        Text(
-                          sasd,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                              color: Colors.grey),
-                        ),
-                      ],
-                    )
-                  ],
+                    // child: Icon(
+                    //   icon,
+                    //   color: Colors.white,
+                    // ),
+                  ),
                 ),
-                Icon(Icons.more_horiz),
+                SizedBox(
+                  width: 12,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //title
+                    Text(
+                      tits,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+
+                    SizedBox(
+                      height: 5,
+                    ),
+                    //subtitile
+                    Text(
+                      sasd,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Colors.grey),
+                    ),
+                  ],
+                )
               ],
             ),
-          ),
+            Icon(Icons.more_horiz),
+          ],
         ),
       ),
     );
