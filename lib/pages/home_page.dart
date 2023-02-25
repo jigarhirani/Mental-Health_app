@@ -1,8 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:mentalhelthapp/pages/consultant.dart';
 import 'package:http/http.dart' as http;
+import 'package:fluttertoast/fluttertoast.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -56,14 +56,26 @@ class _HomePageState extends State<HomePage> {
                             },
                           ));
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.blue[600],
-                              borderRadius: BorderRadius.circular(12)),
-                          padding: EdgeInsets.all(12),
-                          child: Icon(
-                            Icons.notifications,
-                            color: Colors.white,
+                        child: GestureDetector(
+                          onTap: () {
+                            Fluttertoast.showToast(
+                                msg: "There is no new notification",
+                                toastLength: Toast.LENGTH_SHORT,
+                                gravity: ToastGravity.BOTTOM,
+                                timeInSecForIosWeb: 2,
+                                backgroundColor: Colors.amber,
+                                textColor: Colors.white,
+                                fontSize: 15);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.blue[600],
+                                borderRadius: BorderRadius.circular(12)),
+                            padding: EdgeInsets.all(12),
+                            child: Icon(
+                              Icons.notifications,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       )
@@ -125,17 +137,29 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Column(
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.blue[600],
-                              borderRadius: BorderRadius.circular(12),
+                          GestureDetector(
+                            onTap: () {
+                              Fluttertoast.showToast(
+                                  msg: "Bad 😔",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 2,
+                                  backgroundColor: Colors.amber,
+                                  textColor: Colors.white,
+                                  fontSize: 15);
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.blue[600],
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              padding: EdgeInsets.all(16),
+                              child: Center(
+                                  child: Text(
+                                "😔",
+                                style: TextStyle(fontSize: 28),
+                              )),
                             ),
-                            padding: EdgeInsets.all(16),
-                            child: Center(
-                                child: Text(
-                              "😔",
-                              style: TextStyle(fontSize: 28),
-                            )),
                           ),
                           SizedBox(
                             height: 8,
@@ -146,76 +170,112 @@ class _HomePageState extends State<HomePage> {
                           )
                         ],
                       ),
-                      Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.blue[600],
-                              borderRadius: BorderRadius.circular(12),
+                      GestureDetector(
+                        onTap: () {
+                          Fluttertoast.showToast(
+                              msg: "Fine 😊",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.amber,
+                              textColor: Colors.white,
+                              fontSize: 15);
+                        },
+                        child: Column(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.blue[600],
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              padding: EdgeInsets.all(16),
+                              child: Center(
+                                  child: Text(
+                                "😊",
+                                style: TextStyle(fontSize: 28),
+                              )),
                             ),
-                            padding: EdgeInsets.all(16),
-                            child: Center(
-                                child: Text(
-                              "😊",
-                              style: TextStyle(fontSize: 28),
-                            )),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Text(
-                            "Fine",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              "Fine",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
                       ),
                       //well
-                      Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.blue[600],
-                              borderRadius: BorderRadius.circular(12),
+                      GestureDetector(
+                        onTap: () {
+                          Fluttertoast.showToast(
+                              msg: "Well 😁",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.amber,
+                              textColor: Colors.white,
+                              fontSize: 15);
+                        },
+                        child: Column(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.blue[600],
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              padding: EdgeInsets.all(16),
+                              child: Center(
+                                  child: Text(
+                                "😁",
+                                style: TextStyle(fontSize: 28),
+                              )),
                             ),
-                            padding: EdgeInsets.all(16),
-                            child: Center(
-                                child: Text(
-                              "😁",
-                              style: TextStyle(fontSize: 28),
-                            )),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Text(
-                            "Well",
-                            style: TextStyle(color: Colors.white),
-                          )
-                        ],
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              "Well",
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
                       ),
                       // excellent
-                      Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.blue[600],
-                              borderRadius: BorderRadius.circular(12),
+                      GestureDetector(
+                        onTap: () {
+                          Fluttertoast.showToast(
+                              msg: "😃",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.amber,
+                              textColor: Colors.white,
+                              fontSize: 15);
+                        },
+                        child: Column(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.blue[600],
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              padding: EdgeInsets.all(16),
+                              child: Center(
+                                  child: Text(
+                                "😃",
+                                style: TextStyle(fontSize: 28),
+                              )),
                             ),
-                            padding: EdgeInsets.all(16),
-                            child: Center(
-                                child: Text(
-                              "😃",
-                              style: TextStyle(fontSize: 28),
-                            )),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Text(
-                            "Excellent",
-                            style: TextStyle(color: Colors.white),
-                          )
-                        ],
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              "Excellent",
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
                       ),
                     ],
                   ),

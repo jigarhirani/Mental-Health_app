@@ -1,8 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mentalhelthapp/pages/chat.dart';
 import 'package:mentalhelthapp/pages/consultant.dart';
 import 'package:mentalhelthapp/pages/home_page.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() {
   runApp(const MyApp());

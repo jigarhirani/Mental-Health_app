@@ -1,9 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:mentalhelthapp/pages/chat.dart';
 import 'package:http/http.dart' as http;
-import 'package:mentalhelthapp/pages/home_page.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Consultant extends StatefulWidget {
   const Consultant({Key? key}) : super(key: key);
@@ -51,11 +50,14 @@ class _ConsultantState extends State<Consultant> {
                       //Notification Icon
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) {
-                              return HomePage();
-                            },
-                          ));
+                          Fluttertoast.showToast(
+                              msg: "There is no new notification",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.amber,
+                              textColor: Colors.white,
+                              fontSize: 15);
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -67,7 +69,7 @@ class _ConsultantState extends State<Consultant> {
                             color: Colors.white,
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
 
