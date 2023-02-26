@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:mentalhelthapp/pages/consultant.dart';
+import 'package:mentalhealthapp/pages/consultant.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -324,8 +325,7 @@ class _HomePageState extends State<HomePage> {
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
                                     return pad(
-                                        asg:
-                                            sadData[index]['avatar'].toString(),
+                                        pfp: sadData[index]['pfp'],
                                         tits: sadData[index]["skill_name"]
                                             .toString(),
                                         sasd: sadData[index]["excercises_count"]
@@ -333,7 +333,11 @@ class _HomePageState extends State<HomePage> {
                                             " Exersices");
                                   });
                             }
-                            return Center(child: CircularProgressIndicator());
+                            return Center(
+                              child: Lottie.asset(
+                                  'assets/animations/loading.json'),
+                            );
+                            // Center(child: CircularProgressIndicator());
                           },
                         ),
                       )
@@ -344,7 +348,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget pad({required asg, required tits, required sasd}) {
+  Widget pad({required pfp, required tits, required sasd}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0),
       child: Container(
@@ -359,17 +363,15 @@ class _HomePageState extends State<HomePage> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(12),
                   child: Container(
-                    // padding: EdgeInsets.all(16),
-                    // color: Color,
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage(asg),
+                        backgroundImage: NetworkImage(pfp),
                         radius: 30,
                       ),
                     ),
                     // child: Icon(
-                    //   icon,
+                    //   ico,
                     //   color: Colors.white,
                     // ),
                   ),

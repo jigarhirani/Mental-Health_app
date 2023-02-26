@@ -1,4 +1,4 @@
-# mentalhelthapp
+# mentalhealthapp
 
 A new Flutter project.
 

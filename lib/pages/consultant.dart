@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:mentalhelthapp/pages/chat.dart';
+import 'package:mentalhealthapp/pages/chat.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:lottie/lottie.dart';
 
 class Consultant extends StatefulWidget {
   const Consultant({Key? key}) : super(key: key);
@@ -256,7 +257,11 @@ class _ConsultantState extends State<Consultant> {
                                             .toString());
                                   });
                             }
-                            return Center(child: CircularProgressIndicator());
+                            return Center(
+                              child: Lottie.asset(
+                                  'assets/animations/loading.json'),
+                            );
+                            // Center(child: CircularProgressIndicator());
                           },
                         ),
                       )

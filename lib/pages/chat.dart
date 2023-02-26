@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentalhelthapp/pages/consultant.dart';
+import 'package:mentalhealthapp/pages/consultant.dart';
 
 class Chat extends StatelessWidget {
   const Chat({Key? key}) : super(key: key);
@@ -114,194 +114,178 @@ class Chat extends StatelessWidget {
                   borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
                   color: Colors.white,
                 ),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(13),
-                        child: Align(
-                          alignment: (Alignment.topLeft),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(16),
-                                  bottomRight: Radius.circular(16),
-                                  topRight: Radius.circular(16)),
-                              color: (Colors.grey[300]),
-                            ),
-                            padding: EdgeInsets.all(16),
-                            child: Text(
-                              "Hi Jason! how are you?    11.04",
-                              style: TextStyle(fontSize: 14),
-                            ),
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(13),
+                      child: Align(
+                        alignment: (Alignment.topLeft),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                bottomRight: Radius.circular(16),
+                                topRight: Radius.circular(16)),
+                            color: (Colors.grey[300]),
+                          ),
+                          padding: EdgeInsets.all(16),
+                          child: Text(
+                            "Hi Jason! how are you?    11.04",
+                            style: TextStyle(fontSize: 14),
                           ),
                         ),
                       ),
-                      Container(
-                        padding: EdgeInsets.all(13),
-                        child: Align(
-                          alignment: (Alignment.topRight),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(16),
-                                  bottomLeft: Radius.circular(16),
-                                  topRight: Radius.circular(16)),
-                              color: (Colors.blue[600]),
-                            ),
-                            padding: EdgeInsets.all(16),
-                            child: Text(
-                              "Im good, thanks! how are you?    11.04",
-                              style: TextStyle(fontSize: 14),
-                            ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(13),
+                      child: Align(
+                        alignment: (Alignment.topRight),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                bottomLeft: Radius.circular(16),
+                                topRight: Radius.circular(16)),
+                            color: (Colors.blue[600]),
+                          ),
+                          padding: EdgeInsets.all(16),
+                          child: Text(
+                            "Im good, thanks! how are you?    11.04",
+                            style: TextStyle(fontSize: 14),
                           ),
                         ),
                       ),
-                      Container(
-                        padding: EdgeInsets.all(13),
-                        child: Align(
-                          alignment: (Alignment.topLeft),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(16),
-                                  bottomRight: Radius.circular(16),
-                                  topRight: Radius.circular(16)),
-                              color: (Colors.grey[300]),
-                            ),
-                            padding: EdgeInsets.all(16),
-                            child: Text(
-                              "Im great, are you free today?    11.04",
-                              style: TextStyle(fontSize: 14),
-                            ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(13),
+                      child: Align(
+                        alignment: (Alignment.topLeft),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                bottomRight: Radius.circular(16),
+                                topRight: Radius.circular(16)),
+                            color: (Colors.grey[300]),
+                          ),
+                          padding: EdgeInsets.all(16),
+                          child: Text(
+                            "Im great, are you free today?    11.04",
+                            style: TextStyle(fontSize: 14),
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          // Expanded(
-                          //   child: Divider(
-                          //     color: Colors.black,
-                          //     height: 25,
-                          //     thickness: 1,
-                          //     indent: 2,
-                          //     endIndent: 5,
-                          //   ),
-                          // ),
-                          Container(
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        Center(
+                          child: Container(
                             margin: EdgeInsets.only(left: 120, right: 120),
                             padding: EdgeInsets.all(10),
                             decoration: BoxDecoration(
                                 color: Colors.grey[100],
                                 borderRadius: BorderRadius.circular(12)),
-                            child: Align(
-                              alignment: (Alignment.topCenter),
-                              child: Text(
-                                "Today",
-                                style: TextStyle(fontSize: 12),
-                              ),
-                            ),
-                          ),
-                          // Expanded(
-                          //   child: Divider(
-                          //     color: Colors.black,
-                          //     height: 25,
-                          //     thickness: 1,
-                          //     indent: 5,
-                          //     endIndent: 5,
-                          //   ),
-                          // ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(13),
-                        child: Align(
-                          alignment: (Alignment.topRight),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(16),
-                                  bottomLeft: Radius.circular(16),
-                                  topRight: Radius.circular(16)),
-                              color: (Colors.blue[600]),
-                            ),
-                            padding: EdgeInsets.all(16),
                             child: Text(
-                              "Im good, thanks! how are you?    11.04",
-                              style: TextStyle(fontSize: 14),
+                              "Today",
+                              style: TextStyle(fontSize: 12),
                             ),
                           ),
                         ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(13),
-                        child: Align(
-                          alignment: (Alignment.topLeft),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(16),
-                                  bottomRight: Radius.circular(16),
-                                  topRight: Radius.circular(16)),
-                              color: (Colors.grey[300]),
-                            ),
-                            padding: EdgeInsets.all(16),
-                            child: Text(
-                              "🤓🤓🤓🤓    11.04",
-                              style: TextStyle(fontSize: 14),
-                            ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(13),
+                      child: Align(
+                        alignment: (Alignment.topRight),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                bottomLeft: Radius.circular(16),
+                                topRight: Radius.circular(16)),
+                            color: (Colors.blue[600]),
+                          ),
+                          padding: EdgeInsets.all(16),
+                          child: Text(
+                            "Im good, thanks! how are you?    11.04",
+                            style: TextStyle(fontSize: 14),
                           ),
                         ),
                       ),
-                      Row(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.only(
-                                left: 14, top: 14, bottom: 12, right: 3),
-                            child: Align(
-                              alignment: (Alignment.topLeft),
-                              child: Text(
-                                "Bobby",
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold),
-                              ),
-                            ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(13),
+                      child: Align(
+                        alignment: (Alignment.topLeft),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                bottomRight: Radius.circular(16),
+                                topRight: Radius.circular(16)),
+                            color: (Colors.grey[300]),
                           ),
-                          Container(
-                            child: Text(
-                              "is typing...",
-                              style: TextStyle(fontSize: 15),
-                            ),
+                          padding: EdgeInsets.all(16),
+                          child: Text(
+                            "🤓🤓🤓🤓    11.04",
+                            style: TextStyle(fontSize: 14),
                           ),
-                        ],
+                        ),
                       ),
-                      Row(
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                              left: 14, top: 14, bottom: 12, right: 3),
+                          child: Align(
+                            alignment: (Alignment.topLeft),
+                            child: Text(
+                              "Bobby",
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          child: Text(
+                            "is typing...",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Row(
                         children: [
                           Expanded(
                             flex: 4,
                             child: Container(
-                              margin: EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                   color: Colors.grey[300],
-                                  borderRadius: BorderRadius.circular(13)),
-                              padding: EdgeInsets.all(12),
+                                  borderRadius: BorderRadius.circular(12)),
+                              padding: EdgeInsets.all(16),
                               child: Row(
                                 children: [
-                                  Text(
-                                    "write a message..  ",
-                                    style: TextStyle(color: Colors.white),
+                                  Expanded(
+                                    flex: 4,
+                                    child: Text(
+                                      "write a message..",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
                                   ),
-                                  Container(
-                                    alignment: Alignment.bottomRight,
-                                    child: Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 65.0),
+                                  Expanded(
+                                    child: Align(
+                                      alignment: Alignment.centerRight,
                                       child: Icon(
                                         Icons.image_outlined,
                                         color: Colors.white,
@@ -315,11 +299,11 @@ class Chat extends StatelessWidget {
                           Expanded(
                             flex: 1,
                             child: Container(
-                              margin: EdgeInsets.all(6),
+                              margin: EdgeInsets.all(4),
                               decoration: BoxDecoration(
                                   color: Colors.blue[600],
                                   borderRadius: BorderRadius.circular(13)),
-                              padding: EdgeInsets.all(12),
+                              padding: EdgeInsets.all(16),
                               child: Icon(
                                 Icons.mic,
                                 color: Colors.white,
@@ -328,11 +312,11 @@ class Chat extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
